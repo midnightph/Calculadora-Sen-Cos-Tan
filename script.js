@@ -1,6 +1,5 @@
 function appendToDisplay(value) {
     const display = document.getElementById('display');
-    // Evitar múltiplos pontos decimais seguidos
     if (value === '.' && display.value.includes('.')) return;
     display.value += value;
 }
@@ -38,6 +37,20 @@ function calculate() {
             let angle = parseFloat(expression.split('tan')[1]);
             if (!isNaN(angle)) {
                 display.value = Math.tan(angle * (Math.PI / 180));
+                return;
+            }
+        } 
+        else if (expression.includes('√')) {
+            let angle = parseFloat(expression.split('√')[1]);
+            if (!isNaN(angle)) {
+                display.value = Math.sqrt(angle);
+                return;
+            }
+        } 
+        else if (expression.includes('log')) {
+            let angle = parseFloat(expression.split('log')[1]);
+            if (!isNaN(angle)) {
+                display.value = Math.log(angle);
                 return;
             }
         } 
