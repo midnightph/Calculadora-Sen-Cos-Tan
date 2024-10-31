@@ -54,6 +54,41 @@ function calculate() {
                 return;
             }
         } 
+        else if (expression.includes('exp')) {
+            let angle = parseFloat(expression.split('exp')[1]);
+            if (!isNaN(angle)) {
+                display.value = Math.exp(angle);
+                return;
+            }
+        } 
+        else if (expression.includes('^')) {
+            let angle = parseFloat(expression.split('^')[1]);
+            let elevado = parseFloat([2]);
+            if (!isNaN(angle)) {
+                display.value = Math.pow(angle, elevado);
+                return;
+            }
+        } 
+        else if (expression.includes('π')) {
+            let angle = parseFloat(expression.split('π')[1]);
+            let valor = parseFloat([2]);
+            if (expression.includes('+')) {
+                display.value = Math.PI + valor + 1;
+                return;
+            }
+            else if(expression.includes('-')){
+                display.value= Math.PI - valor + 1;
+                return;
+            }
+            else if(expression.includes('*')){
+                display.value= Math.PI * valor;
+                return;
+            }
+            else if(expression.includes('/')){
+                display.value= Math.PI / valor;
+                return;
+            }
+        } 
 
         display.value = eval(expression) || '0';
     } catch {
